@@ -1,0 +1,12 @@
+.exitFolderBtn {
+  font-size: 60px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.exitFolderBtn a {
+  display: block;
+  height: 30px;
+  line-height: 0px;
+  margin-left: -3px;
+  user-select: none;
+}

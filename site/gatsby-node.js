@@ -68,4 +68,12 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+  createPage({
+    path: '/',
+    component: path.resolve(`./src/components/ViewerFolder.js`),
+    context: {
+      slug: '/',
+      regexpTemplate: `/\/[^/]+\/$/`
+    },
+  })
 }
