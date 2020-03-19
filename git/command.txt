@@ -1,3 +1,5 @@
+git commit --amend -m 'info' - перезаписать прошлый коммит
+
 git branch <name branch> - создать ветку
 git branch -f <name branch> <id commit> - создать ветку на коммите/перенести ветку на id commit 
 
