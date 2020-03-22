@@ -1,0 +1,1 @@
+this._usersCollect.find(null,{ fields : { _id:0, password:0} }) - исключает поля _id, и password
