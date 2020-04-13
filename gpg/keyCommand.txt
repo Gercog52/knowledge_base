@@ -1,0 +1,4 @@
+--export-secret-key - экспорт сикретного ключа
+--gen-revoke - отзывает сик ключа 
+--export-secret-subkeys - экспорт саб ключей
+--export - экспорт паб ключа
