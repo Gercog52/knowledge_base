@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+const path = require('path');
 
 module.exports = {
   /* Your site config here */
@@ -11,7 +12,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `data`,
-        path: `/home/gercog/doc/knowledge_base/data`,
+        path: path.resolve(`${__dirname}/../data`)
       }
     },
     {
