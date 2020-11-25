@@ -6,9 +6,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if ( node.internal.type === `MarkdownRemark` ||
       (node.internal.type === 'Directory' && node.name !== 'data')
      ) {
-    const slug = createFilePath(
-      { node, getNode, basePath: `/home/gercog/doc/knowledge_base/site/` }
-    );
+    const slug = createFilePath({ 
+        node, 
+        getNode, 
+        basePath: __dirname
+    });
     createNodeField({
       node,
       name: `slug`,
@@ -31,10 +33,12 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       allDirectory(filter: {name: {ne: "data"}}) {
-        nodes {
-          name
-          fields {
-            slug
+        edges {
+          node {
+            fields {
+              slug
+            }
+            name
           }
         }
       }
@@ -47,6 +51,20 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/components/Md.js`),
       context: {
         slug: node.fields.slug,
+      },
+    })
+  })
+  result.data.allDirectory.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/components/ViewerFolder.js`),
+      context: {
+        slug: node.fields.slug,
+        regexpTemplate: `/${
+          node.fields.slug
+                     .replace(/\//g,'\\/')
+                     .replace(/\+/g, '\\\\+')
+        }[^\/]*\/$/`
       },
     })
   })
