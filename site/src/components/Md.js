@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from "gatsby"
 
 export default function Md(props) {
-  console.log(props);
   return (
     <div dangerouslySetInnerHTML={{
       __html:props.data.markdownRemark.html
