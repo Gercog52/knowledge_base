@@ -1,11 +1,16 @@
 import React from 'react'
 import { graphql } from "gatsby"
+import { ExitFolderBtn } from './ExitDirectoryBtn'
+import '../styles/viewerForlder.css'
 
 export default function Md(props) {
   return (
-    <div dangerouslySetInnerHTML={{
-      __html:props.data.markdownRemark.html
-    }}></div>
+    <>
+      <ExitFolderBtn path={props.path}/>
+      <div dangerouslySetInnerHTML={{
+        __html:props.data.markdownRemark.html
+      }}></div>
+    </>
   )
 }
 
