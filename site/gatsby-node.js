@@ -6,11 +6,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if ( node.internal.type === `MarkdownRemark` ||
       (node.internal.type === 'Directory' && node.name !== 'data')
      ) {
-    const slug = createFilePath({ 
+    let slug = createFilePath({ 
         node, 
         getNode, 
         basePath: __dirname
     });
+    if(node.internal.type === `MarkdownRemark`) {
+      slug = slug.replace(/\/$/,'-md/');
+    }
     createNodeField({
       node,
       name: `slug`,
@@ -59,7 +62,6 @@ exports.createPages = async ({ graphql, actions }) => {
       path: node.fields.slug,
       component: path.resolve(`./src/components/ViewerFolder.js`),
       context: {
-        slug: node.fields.slug,
         regexpTemplate: `/${
           node.fields.slug
                      .replace(/\//g,'\\/')
@@ -72,7 +74,6 @@ exports.createPages = async ({ graphql, actions }) => {
     path: '/',
     component: path.resolve(`./src/components/ViewerFolder.js`),
     context: {
-      slug: '/',
       regexpTemplate: `/\/[^/]+\/$/`
     },
   })

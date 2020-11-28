@@ -36,11 +36,15 @@ export default function ViewerFolder (props) {
 }
 
 export const query = graphql`
-  query($slug: String!, $regexpTemplate: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
+  query($regexpTemplate: String!) {
+    markdownRemark(fields: { slug: {regex: $regexpTemplate} }) {
+      fields {
+        slug
+      }
+      parent {
+        ... on File {
+          base
+        }
       }
     }
     allDirectory(filter: {fields: {slug: {regex: $regexpTemplate}}}) {
