@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
     path: '/',
     component: path.resolve(`./src/components/ViewerFolder.js`),
     context: {
-      regexpTemplate: `/\/[^/]+\/$/`
+      regexpTemplate: `/^\/[^/]+\/$/`
     },
   })
 }
