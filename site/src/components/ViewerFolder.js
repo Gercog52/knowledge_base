@@ -14,7 +14,7 @@ export default function ViewerFolder (props) {
       }
       {props.data.allDirectory.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link to={node.fields.slug} >
+          <Link to={node.fields.slug} className='styledLink'>
             {node.name}
           </Link>
         </div>
@@ -23,7 +23,7 @@ export default function ViewerFolder (props) {
       {path !== '/' && 
        props.data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <Link to={node.fields.slug} >
+          <Link to={node.fields.slug} className='styledLink'>
             {node.parent.base}
           </Link>
         </div>

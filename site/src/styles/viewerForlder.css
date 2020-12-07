@@ -10,3 +10,11 @@
   margin-left: -3px;
   user-select: none;
 }
+.styledLink {
+  position: relative;
+  color: black;
+  transition: .2s;
+}
+.styledLink:hover{
+  color: rgb(226, 0, 0);
+}
