@@ -11,10 +11,12 @@
   user-select: none;
 }
 .styledLink {
-  position: relative;
+  display: flex;
+  align-items: center;
   color: black;
   transition: .2s;
 }
-.styledLink:hover{
-  color: rgb(226, 0, 0);
+.styledLink img {
+  height: 25px;
+  margin-right: 3px;
 }

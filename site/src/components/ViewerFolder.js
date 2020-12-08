@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import { ExitFolderBtn } from './ExitDirectoryBtn'
+import folderIcon from '../images/folder.png'
+import mdIcon from '../images/md.png'
 import '../styles/viewerForlder.css'
 
 export default function ViewerFolder (props) {
@@ -15,7 +17,7 @@ export default function ViewerFolder (props) {
       {props.data.allDirectory.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.fields.slug} className='styledLink'>
-            {node.name}
+            <img src={folderIcon} alt="folder"/> {node.name}
           </Link>
         </div>
       ))}
@@ -24,7 +26,7 @@ export default function ViewerFolder (props) {
        props.data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.fields.slug} className='styledLink'>
-            {node.parent.base}
+            <img src={mdIcon} alt="md"/> {node.parent.base}
           </Link>
         </div>
       ))}
