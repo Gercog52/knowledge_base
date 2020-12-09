@@ -8,11 +8,20 @@ import '../styles/viewerForlder.css'
 
 export default function ViewerFolder (props) {
   const { path } = props
+  console.log(props);
   return (
     <div>
       {
-        path !== '/' &&
-        <ExitFolderBtn path={path}/>
+        path !== '/' && 
+        <div className="directoryControl">
+          <ExitFolderBtn path={path}/>
+          <span className="directoryPath">
+            {
+             props.path.replace('/','~/')
+                       .replace(/\/$/m,'')
+            }
+          </span>
+        </div>
       }
       {props.data.allDirectory.edges.map(({ node }) => (
         <div key={node.id}>

@@ -1,3 +1,11 @@
+.directoryControl {
+  display: flex;
+  align-items: center;
+}
+.directoryPath {
+  margin-left: 3px;
+  margin-top: 3px;
+}
 .exitFolderBtn {
   font-size: 60px;
   font-weight: bold;
