@@ -1,3 +1,4 @@
+```javascript
 const fs = require('fs');
 const path = require('path');
 const NodeRSA = require('node-rsa');
@@ -42,3 +43,4 @@ function defaultTask(cb) {
 
 exports.default = defaultTask
 */
+```
